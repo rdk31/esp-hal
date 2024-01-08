@@ -494,6 +494,10 @@ where
     pub fn change_bus_frequency(&mut self, frequency: HertzU32, clocks: &Clocks) {
         self.spi.ch_bus_freq(frequency, clocks);
     }
+
+    pub fn change_data_mode(&mut self, mode: SpiMode) {
+        self.spi.set_data_mode(mode);
+    }
 }
 
 impl<'d, T> Spi<'d, T, HalfDuplexMode>
@@ -670,6 +674,10 @@ where
 
     pub fn change_bus_frequency(&mut self, frequency: HertzU32, clocks: &Clocks) {
         self.spi.ch_bus_freq(frequency, clocks);
+    }
+
+    pub fn change_data_mode(&mut self, mode: SpiMode) {
+        self.spi.set_data_mode(mode);
     }
 }
 
@@ -1021,6 +1029,10 @@ pub mod dma {
     {
         pub fn change_bus_frequency(&mut self, frequency: HertzU32, clocks: &Clocks) {
             self.spi.ch_bus_freq(frequency, clocks);
+        }
+
+        pub fn change_data_mode(&mut self, mode: SpiMode) {
+            self.spi.set_data_mode(mode);
         }
     }
 
